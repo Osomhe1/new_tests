@@ -13,30 +13,33 @@ export default function MkdSDK() {
     this._table = table;
   };
   
-  this.login = async function (email, password, role) {
+  this.login = async function ({email: , password, role}) {
     //TODO
 
-    var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-myHeaders.append("x-project", "cmVhY3R0YXNrOjVmY2h4bjVtOGhibzZqY3hpcTN4ZGRvZm9kb2Fjc2t5ZQ==");
+    var myHeaders = new Headers()
+    myHeaders.append('Content-Type', 'application/json')
+    myHeaders.append(
+      'x-project',
+      'cmVhY3R0YXNrOjVmY2h4bjVtOGhibzZqY3hpcTN4ZGRvZm9kb2Fjc2t5ZQ=='
+    )
 
-var raw = JSON.stringify({
-  "email": "adminreacttask@manaknight.com",
-  "password": "a123456",
-  "role": "admin"
-});
+    var raw = JSON.stringify({
+      email: 'adminreacttask@manaknight.com',
+      password: 'a123456',
+      role: 'admin',
+    })
 
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
+    }
 
-fetch("https://reacttask.mkdlabs.com/v2/api/lambda/login", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+    fetch('https://reacttask.mkdlabs.com/v2/api/lambda/login', requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log('error', error))
   };
 
   this.getHeader = function () {

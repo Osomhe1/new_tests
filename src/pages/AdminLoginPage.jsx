@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -15,6 +15,7 @@ const AdminLoginPage = () => {
     })
     .required();
 
+    const [isSuccess] = useState(false)
   const { dispatch } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const {
@@ -30,10 +31,12 @@ const AdminLoginPage = () => {
     let sdk = new MkdSDK();
     //TODO
     try {
-      
           dispatch(sdk(data))
+          if(!isSuccess){
+            // SnackBar.success('successful login!!!')
+            navigate('/AdminDashboardPage')
+          }
           // `<SnackBar />`
-          navigate('/AdminDashboardPage')
     } catch (error) {
       console.log(error);
     }

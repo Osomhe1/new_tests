@@ -110,11 +110,36 @@ fetch("https://reacttask.mkdlabs.com/v2/api/lambda/login", requestOptions)
 
   this.check = async function (role) {
     //TODO
-    if(role == 'admmin'){
-      console.log('role', role);
-    }else{
-      console.log('Not an admine',);
+    // if(role == 'admmin'){
+    //   console.log('role', role);
+    // }else{
+    //   console.log('Not an admine',);
+    // }
+
+    var myHeaders = new Headers()
+    myHeaders.append(
+      'x-project',
+      'cmVhY3R0YXNrOjVmY2h4bjVtOGhibzZqY3hpcTN4ZGRvZm9kb2Fjc2t5ZQ=='
+    )
+    myHeaders.append(
+      'Authorization',
+      'Bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NjgwMDQyMjksImV4cCI6MTY2ODAwNzgyOX0.5oglXB5tUNjHDHT8N5EWKwbtAE64Lz8hTkXE7bX64UQ"'
+    )
+    myHeaders.append('Content-Type', 'text/plain')
+
+    role = '{  "role": "admin"}'
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
     }
+
+    fetch('https://reacttask.mkdlabs.com/v2/api/lambda/check', requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log('error', error))
   };
 
   return this;

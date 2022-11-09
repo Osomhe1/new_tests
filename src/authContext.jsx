@@ -46,6 +46,7 @@ const AuthProvider = ({ children }) => {
 
   React.useEffect(() => {
     //TODO
+    sdk()
   }, []);
 
   return (

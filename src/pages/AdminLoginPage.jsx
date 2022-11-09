@@ -5,6 +5,7 @@ import * as yup from "yup";
 import MkdSDK from "../utils/MkdSDK";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../authContext";
+import SnackBar from "../components/SnackBar";
 
 const AdminLoginPage = () => {
   const schema = yup
@@ -28,8 +29,14 @@ const AdminLoginPage = () => {
   const onSubmit = async (data) => {
     let sdk = new MkdSDK();
     //TODO
-    dispatch(sdk(data))
-    navigate('/')
+    try {
+      
+          dispatch(sdk(data))
+          // `<SnackBar />`
+          navigate('/')
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

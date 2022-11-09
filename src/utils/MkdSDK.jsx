@@ -37,6 +37,8 @@ fetch("https://reacttask.mkdlabs.com/v2/api/lambda/login", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
+
+  
   };
 
   this.getHeader = function () {

@@ -31,10 +31,10 @@ const AdminLoginPage = () => {
     let sdk = new MkdSDK();
     //TODO
     try {
-          dispatch(sdk(data))
+          dispatch(sdk.login(data))
           if(!isSuccess){
             // SnackBar.success('successful login!!!')
-            navigate('/AdminDashboardPage')
+            navigate('/admin/dashboard')
           }
           // `<SnackBar />`
     } catch (error) {

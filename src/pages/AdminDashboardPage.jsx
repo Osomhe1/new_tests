@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import {  useNavigate } from "react-router";
 
 const AdminDashboardPage = () => {
   const [logOut, setLogOut] = useState(false)
+  let navigate = useNavigate()
 
    const logout = (e) => {
     e.preventDefault()
      localStorage.clear()
      setLogOut(logOut)
+     console.log('logout');
+     navigate('/admin/login')
    }
   return (
     <>

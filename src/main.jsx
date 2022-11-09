@@ -9,22 +9,22 @@ import NotFoundPage from "./pages/NotFoundPage";
 function renderRoutes(role) {
   switch (role) {
     case "admin":
-      return (
+      // return (
         <Routes>
           <Route
             path="/admin/dashboard"
             element={<AdminDashboardPage />}
           ></Route>
         </Routes>
-      );
+      // );
       break;
     default:
-      return (
+      // return (
         <Routes>
           <Route exact path="/admin/login" element={<AdminLoginPage />}></Route>
           <Route path="*" exact element={<NotFoundPage />}></Route>
         </Routes>
-      );
+      // );
       break;
   }
 }

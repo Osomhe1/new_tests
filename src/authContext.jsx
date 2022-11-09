@@ -16,7 +16,9 @@ const reducer = (state, action) => {
       //TODO
       return {
         ...state,
-      };
+        isAuthenticated: true,
+        user,
+      }
     case "LOGOUT":
       localStorage.clear();
       return {

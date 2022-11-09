@@ -110,11 +110,6 @@ fetch("https://reacttask.mkdlabs.com/v2/api/lambda/login", requestOptions)
 
   this.check = async function (role) {
     //TODO
-    // if(role == 'admmin'){
-    //   console.log('role', role);
-    // }else{
-    //   console.log('Not an admine',);
-    // }
 
     var myHeaders = new Headers()
     myHeaders.append(

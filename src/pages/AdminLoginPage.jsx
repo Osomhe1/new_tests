@@ -33,7 +33,7 @@ const AdminLoginPage = () => {
       
           dispatch(sdk(data))
           // `<SnackBar />`
-          navigate('/')
+          navigate('/AdminDashboardPage')
     } catch (error) {
       console.log(error);
     }
